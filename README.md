@@ -3,7 +3,7 @@
 A machine learning web app that predicts 30-day hospital readmission risk for patients using clinical features.
 
 ## 🔗 Live Demo
-Deploy on [Streamlit Cloud](https://streamlit.io/cloud) — free in 2 minutes.
+[Open the Hospital Readmission Predictor](https://hospitalreadmissionpredictor-teyrx8aebzjqrukfjn2opx.streamlit.app/)
 
 ## 🎯 Business Problem
 Hospital readmissions within 30 days cost the US healthcare system $26 billion annually. Early identification of high-risk patients allows hospitals to intervene with targeted discharge planning and follow-up care.

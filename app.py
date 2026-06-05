@@ -10,7 +10,6 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics import (classification_report, confusion_matrix,
                              roc_auc_score, roc_curve, ConfusionMatrixDisplay)
 from sklearn.pipeline import Pipeline
-from imblearn.over_sampling import SMOTE
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -71,11 +70,13 @@ def train_model(df):
     y = df2["readmitted"]
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
 
-    sm = SMOTE(random_state=42)
-    X_res, y_res = sm.fit_resample(X_train, y_train)
-
-    model = RandomForestClassifier(n_estimators=200, max_depth=8, random_state=42, class_weight="balanced")
-    model.fit(X_res, y_res)
+    model = RandomForestClassifier(
+    n_estimators=200,
+    max_depth=8,
+    random_state=42,
+    class_weight="balanced"
+)
+model.fit(X_train, y_train)
 
     y_pred  = model.predict(X_test)
     y_proba = model.predict_proba(X_test)[:,1]
